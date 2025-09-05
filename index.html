@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="Styles.css" />
+  </head>
+  <body class="p-4">
+    <div
+      class="weather-card w-full max-w-sm p-6 rounded-3xl shadow-2xl border border-gray-700 space-y-6 transform transition-transform duration-500 ease-in-out hover:scale-105"
+    >
+      <!-- Search Section -->
+      <div class="flex flex-col space-y-4">
+        <h1 class="text-3xl font-bold text-center">Weather Forecast</h1>
+        <div class="relative">
+          <input
+            id="city-input"
+            type="text"
+            placeholder="Enter city name..."
+            class="w-full p-3 pl-12 rounded-full bg-gray-700 text-gray-200 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-sky-500 transition duration-300"
+          />
+          <!-- Search Icon -->
+          <i
+            class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+          ></i>
+        </div>
+        <button
+          id="search-btn"
+          class="w-full bg-sky-600 text-white font-semibold py-3 rounded-full hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition duration-300"
+        >
+          Search
+        </button>
+      </div>
+
+      <!-- Weather Display Section -->
+      <div id="weather-display" class="fade-in hidden">
+        <div class="text-center space-y-2">
+          <div class="flex justify-center items-center space-x-2">
+            <!-- Weather Main Icon -->
+            <i
+              id="weather-icon"
+              class="fa-solid fa-cloud-sun text-6xl text-sky-500"
+            ></i>
+            <h2 id="city-name" class="text-4xl font-bold"></h2>
+          </div>
+          <p id="description" class="text-lg capitalize text-gray-400"></p>
+          <div class="text-7xl font-light leading-none">
+            <span id="temperature"></span>
+            <span class="text-4xl align-top">&deg;C</span>
+          </div>
+        </div>
+        <!-- Additional Details -->
+        <div class="grid grid-cols-2 gap-4 mt-6 text-sm text-gray-300">
+          <!-- Feels Like -->
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-temperature-half text-sky-400"></i>
+            <span>
+              Feels Like:
+              <span id="feels-like" class="font-semibold"></span>&deg;C
+            </span>
+          </div>
+          <!-- Humidity -->
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-droplet text-blue-400"></i>
+            <span>
+              Humidity:
+              <span id="humidity" class="font-semibold"></span>%
+            </span>
+          </div>
+          <!-- Wind -->
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-wind text-gray-300"></i>
+            <span>
+              Wind:
+              <span id="wind-speed" class="font-semibold"></span> m/s
+            </span>
+          </div>
+          <!-- Pressure -->
+          <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-gauge-high text-gray-300"></i>
+            <span>
+              Pressure:
+              <span id="pressure" class="font-semibold"></span> hPa
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading and Error Section -->
+      <div id="status-message" class="text-center font-medium text-gray-400">
+        Fetching your location...
+      </div>
+    </div>
+    <script src="Script.js"></script>
+  </body>
+</html>
